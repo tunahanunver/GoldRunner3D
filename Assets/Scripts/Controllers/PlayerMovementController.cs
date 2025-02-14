@@ -10,7 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody _rigidbody;
     private float _horizontalInput;
 
-    bool alive = true;
+    private bool alive = true;
 
     private void Awake()
     {
@@ -43,16 +43,21 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < -5)
-        {
-            Die();
-        }    
+        Again();
     }
 
-    public void Die()
+    internal void Die()
     {
         alive = false;
         Invoke("Restart", 2);
+    }
+
+    private void Again()
+    {
+        if (transform.position.y < -5)
+        {
+            Die();
+        }
     }
 
     void Restart()

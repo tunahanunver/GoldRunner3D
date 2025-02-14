@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class ObstacleController : MonoBehaviour
 {
     PlayerMovementController movementController;
 
-    private void Start()
+    private void Awake()
     {
         movementController = GameObject.FindObjectOfType<PlayerMovementController>();    
     }
