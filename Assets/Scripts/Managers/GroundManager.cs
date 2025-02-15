@@ -14,13 +14,26 @@ public class GroundManager : MonoBehaviour
     {
         for (int i = 0; i < 15; i++)
         {
-            SpawnTile();
+            if (i < 1)
+            {
+                SpawnTile(false);
+            }
+            else
+            {
+                SpawnTile(true);
+            }
         }    
     }
 
-    public void SpawnTile()
+    public void SpawnTile(bool spawnItems)
     {
         GameObject temp = Instantiate(_groundTile, _nextSpawnPoint, Quaternion.identity);
         _nextSpawnPoint = temp.transform.GetChild(1).transform.position;
+
+        if (spawnItems)
+        {
+            temp.GetComponent<GroundController>().SpawnObstacle();
+            temp.GetComponent<GroundController>().SpawnCoins();
+        }
     }
 }

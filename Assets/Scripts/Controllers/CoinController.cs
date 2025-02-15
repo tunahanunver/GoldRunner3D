@@ -11,7 +11,7 @@ public class CoinController : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        
         if (other.gameObject.name != "Player")
         {
             return;

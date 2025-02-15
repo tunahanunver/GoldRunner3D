@@ -7,15 +7,18 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager inst;
 
     [SerializeField] private Text scoreText;
+    private PlayerMovementController playerMovement;
 
     private void Awake()
     {
-        inst = this;    
+        inst = this;
+        playerMovement = GameObject.FindObjectOfType<PlayerMovementController>();
     }
 
     internal void IncrementScore()
     {
         _score++;
         scoreText.text = "SCORE: " + _score;
+        playerMovement.speed += playerMovement.speedIncreasePerPoint;
     }
 }

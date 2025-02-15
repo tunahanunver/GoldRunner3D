@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] private PlayerManager manager;
-    [SerializeField] private float speed = 5;
+    [SerializeField] public float speed = 5;
     [SerializeField] private float horizontalMultipler = 2;
+    [SerializeField] public float speedIncreasePerPoint = 0.1f;
     private Rigidbody _rigidbody;
     private float _horizontalInput;
 

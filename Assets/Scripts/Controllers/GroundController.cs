@@ -16,17 +16,17 @@ public class GroundController : MonoBehaviour
 
     private void Start()
     {
-        SpawnObstacle();
-        SpawnCoins();    
+        //SpawnObstacle();
+        //SpawnCoins();    
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _groundManager.SpawnTile();
+        _groundManager.SpawnTile(true);
         Destroy(gameObject, 1);
     }
 
-    private void SpawnObstacle()
+    internal void SpawnObstacle()
     {
         int obstacleSpawnIndex = Random.Range(2, 5);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
@@ -34,7 +34,7 @@ public class GroundController : MonoBehaviour
         Instantiate(_obstaclePrefab, spawnPoint.position, Quaternion.identity, transform);
     }
 
-    private void SpawnCoins()
+    internal void SpawnCoins()
     {
         int CoinsToSpawn = 10;
 
